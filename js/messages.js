@@ -5,11 +5,6 @@
    - Marking notifications as read
    - Loading received messages
    - Sending a new message
-
-   NOTE: Requires js/config.js and js/auth.js to be loaded first.
-   ============================================================ */
-
-
 /* Redirect to login if not logged in */
 requireLogin();
 showAdminLink();
