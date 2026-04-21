@@ -21,7 +21,6 @@ Registration is restricted to **@acity.edu.gh** institutional emails only.
 | **Backend GitHub Repo** | https://github.com/joeldvlps/acityconnect-backend |
 | **Frontend GitHub Repo** | https://github.com/joeldvlps/acityconnect-frontend |
 
-> ⚠️ The free Render backend may take 30–60 seconds to wake up on first request.
 
 ---
 
