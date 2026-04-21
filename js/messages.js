@@ -10,11 +10,11 @@ requireLogin();
 showAdminLink();
 
 
-/* ----------------------------------------------------------
+/* 
    loadNotifications()
    Fetches all notifications for the logged-in user.
    Shows them in a list. Unread ones are highlighted.
-   ---------------------------------------------------------- */
+   */
 function loadNotifications() {
     apiGet('/api/notifications')
         .then(function(notifications) {
@@ -67,10 +67,10 @@ function loadNotifications() {
 }
 
 
-/* ----------------------------------------------------------
+/* 
    markRead(notifId)
    Marks a single notification as read, then reloads the list.
-   ---------------------------------------------------------- */
+   */
 function markRead(notifId) {
     apiPut('/api/notifications/' + notifId + '/read', {})
         .then(function() {
@@ -79,10 +79,10 @@ function markRead(notifId) {
 }
 
 
-/* ----------------------------------------------------------
+/* 
    loadMessages()
    Fetches all direct messages received by the logged-in user.
-   ---------------------------------------------------------- */
+   */
 function loadMessages() {
     apiGet('/api/messages')
         .then(function(messages) {
@@ -118,10 +118,10 @@ function loadMessages() {
 }
 
 
-/* ----------------------------------------------------------
+/* 
    sendMessage()
    Reads the form inputs and sends a direct message.
-   ---------------------------------------------------------- */
+   */
 function sendMessage() {
     var toUserId = document.getElementById('to-user-id').value;
     var body     = document.getElementById('msg-body').value.trim();
@@ -161,9 +161,9 @@ function sendMessage() {
 }
 
 
-/* ----------------------------------------------------------
+/* 
    escapeHtml — safety function
-   ---------------------------------------------------------- */
+   */
 function escapeHtml(text) {
     if (!text) return '';
     return text
@@ -173,9 +173,3 @@ function escapeHtml(text) {
         .replace(/"/g, '&quot;');
 }
 
-
-/* ----------------------------------------------------------
-   Load everything when the page opens
-   ---------------------------------------------------------- */
-loadNotifications();
-loadMessages();
