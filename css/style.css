@@ -1,12 +1,12 @@
-/* ============================================================
+/*
    ACITY CONNECT — Main Stylesheet
    Simple, clean, easy to read.
-   ============================================================ */
+*/
 
 
-/* ----------------------------------------------------------
+/*
    GLOBAL RESET — Remove default browser spacing
-   ---------------------------------------------------------- */
+*/
 * {
     margin: 0;
     padding: 0;
@@ -14,9 +14,9 @@
 }
 
 
-/* ----------------------------------------------------------
+/*
    BODY — Base page styles
-   ---------------------------------------------------------- */
+*/
 body {
     font-family: Arial, sans-serif;   /* common web font, works everywhere */
     background-color: #f0f0f0;        /* light grey background */
@@ -26,17 +26,17 @@ body {
 }
 
 
-/* ----------------------------------------------------------
+/*
    HEADINGS
-   ---------------------------------------------------------- */
+*/
 h1 { font-size: 24px; margin-bottom: 12px; }
 h2 { font-size: 20px; margin-bottom: 10px; }
 h3 { font-size: 17px; margin-bottom: 8px;  }
 
 
-/* ----------------------------------------------------------
+/*
    LINKS
-   ---------------------------------------------------------- */
+*/
 a {
     color: #000080;    /* classic navy blue link colour */
     text-decoration: underline;
@@ -55,9 +55,9 @@ a:hover {
 }
 
 
-/* ===========================================================
+/*
    NAVBAR — Top navigation bar
-   =========================================================== */
+*/
 .navbar {
     background-color: #000080;    /* navy blue */
     padding: 10px 20px;
@@ -108,9 +108,9 @@ a:hover {
 }
 
 
-/* ===========================================================
+/*
    PAGE WRAPPER — Centre content with max width
-   =========================================================== */
+*/
 .page {
     max-width: 900px;
     margin: 20px auto;    /* centre horizontally, 20px from top */
@@ -118,9 +118,9 @@ a:hover {
 }
 
 
-/* ===========================================================
+/*
    AUTH BOX — Login and Register forms
-   =========================================================== */
+*/
 .auth-box {
     max-width: 400px;
     margin: 50px auto;
@@ -145,9 +145,9 @@ a:hover {
 }
 
 
-/* ===========================================================
+/*
    FORMS — Labels, inputs, buttons
-   =========================================================== */
+*/
 .form-row {
     margin-bottom: 15px;    /* spacing between form fields */
 }
@@ -183,9 +183,9 @@ a:hover {
 }
 
 
-/* ===========================================================
+/*
    BUTTONS
-   =========================================================== */
+*/
 
 /* Primary action button (blue) */
 .btn {
@@ -249,9 +249,9 @@ a:hover {
 }
 
 
-/* ===========================================================
+/*
    ALERTS — Error and success messages
-   =========================================================== */
+*/
 .alert {
     padding: 10px 14px;
     margin-bottom: 15px;
@@ -278,9 +278,9 @@ a:hover {
 }
 
 
-/* ===========================================================
+/*
    SECTION HEADER — Title + subtitle + optional button
-   =========================================================== */
+*/
 .section-header {
     display: flex;
     justify-content: space-between;
@@ -296,9 +296,9 @@ a:hover {
 }
 
 
-/* ===========================================================
+/*
    SEARCH & FILTER BAR
-   =========================================================== */
+*/
 .filter-bar {
     display: flex;
     gap: 10px;
@@ -320,9 +320,9 @@ a:hover {
 }
 
 
-/* ===========================================================
+/*
    LISTINGS GRID — Marketplace cards
-   =========================================================== */
+*/
 .listings-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);   /* 3 columns */
@@ -368,9 +368,9 @@ a:hover {
 }
 
 
-/* ===========================================================
+/*
    BADGES — Small coloured labels
-   =========================================================== */
+*/
 .badge {
     display: inline-block;
     padding: 2px 8px;
@@ -390,9 +390,9 @@ a:hover {
 .badge-flagged   { background: #ff9999; color: #660000; border-color: #cc0000; }
 
 
-/* ===========================================================
+/*
    TABLE — Used in admin page and messages page
-   =========================================================== */
+*/
 table {
     width: 100%;
     border-collapse: collapse;    /* remove double borders */
@@ -418,9 +418,9 @@ table tr:hover {
 }
 
 
-/* ===========================================================
+/*
    STAT BOXES — Admin dashboard numbers
-   =========================================================== */
+*/
 .stats-row {
     display: flex;
     gap: 15px;
@@ -450,9 +450,9 @@ table tr:hover {
 }
 
 
-/* ===========================================================
+/*
    SECTION BOX — White box with border (general container)
-   =========================================================== */
+*/
 .section-box {
     background: #ffffff;
     border: 1px solid #cccccc;
@@ -461,9 +461,9 @@ table tr:hover {
 }
 
 
-/* ===========================================================
+/*
    PROFILE LAYOUT — Side card + main content
-   =========================================================== */
+*/
 .profile-layout {
     display: flex;
     gap: 20px;
@@ -508,9 +508,9 @@ table tr:hover {
 }
 
 
-/* ===========================================================
+/*
    MODAL — Popup dialog box
-   =========================================================== */
+*/
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -547,9 +547,9 @@ table tr:hover {
 }
 
 
-/* ===========================================================
+/*
    MESSAGE PAGE — Notification and message list items
-   =========================================================== */
+*/
 .msg-item {
     padding: 12px;
     border-bottom: 1px solid #dddddd;
@@ -572,9 +572,9 @@ table tr:hover {
 }
 
 
-/* ===========================================================
+/*
    LOADING / EMPTY STATE TEXT
-   =========================================================== */
+*/
 .loading-msg {
     color: #666666;
     font-size: 14px;

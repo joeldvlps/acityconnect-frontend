@@ -1,4 +1,4 @@
-/* ============================================================
+/*
    js/profile.js
    Handles the My Profile page:
    - Loading the user's profile data
@@ -7,7 +7,7 @@
    - Loading the listings they expressed interest in
 
    NOTE: Requires js/config.js and js/auth.js to be loaded first.
-   ============================================================ */
+*/
 
 
 /* Redirect to login if not logged in */
@@ -19,11 +19,11 @@ showAdminLink();
 var currentUser = getUser();
 
 
-/* ----------------------------------------------------------
+/*
    loadProfile()
    Fetches the user's profile from the server and fills
    in their name, email, bio, and skills on the page.
-   ---------------------------------------------------------- */
+*/
 function loadProfile() {
     apiGet('/api/users/' + currentUser.id)
         .then(function(data) {
@@ -54,11 +54,11 @@ function loadProfile() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    saveProfile()
    Reads the form values and sends them to the server
    to update the user's profile.
-   ---------------------------------------------------------- */
+*/
 function saveProfile() {
     var body = {
         full_name:      document.getElementById('edit-name').value,
@@ -93,11 +93,11 @@ function saveProfile() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    loadMyListings()
    Fetches and displays listings posted by this user.
    Shows status controls and a delete button.
-   ---------------------------------------------------------- */
+*/
 function loadMyListings() {
     apiGet('/api/listings/mine')
         .then(function(listings) {
@@ -145,11 +145,11 @@ function loadMyListings() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    updateStatus(listingId, newStatus)
    Called when the user changes the status dropdown.
    Sends a PUT request to update the listing's status.
-   ---------------------------------------------------------- */
+*/
 function updateStatus(listingId, newStatus) {
     apiPut('/api/listings/' + listingId + '/status', { status: newStatus })
         .then(function(data) {
@@ -161,10 +161,10 @@ function updateStatus(listingId, newStatus) {
 }
 
 
-/* ----------------------------------------------------------
+/*
    deleteListing(listingId)
    Asks for confirmation then deletes the listing.
-   ---------------------------------------------------------- */
+*/
 function deleteListing(listingId) {
     /* confirm() shows a browser dialog with OK / Cancel */
     if (!confirm('Are you sure you want to delete this listing?')) {
@@ -179,10 +179,10 @@ function deleteListing(listingId) {
 }
 
 
-/* ----------------------------------------------------------
+/*
    loadMyInteractions()
    Shows a list of listings the current user clicked "Interested" on.
-   ---------------------------------------------------------- */
+*/
 function loadMyInteractions() {
     apiGet('/api/interactions/mine')
         .then(function(interactions) {
@@ -213,9 +213,9 @@ function loadMyInteractions() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    escapeHtml — safety function (same as in dashboard.js)
-   ---------------------------------------------------------- */
+*/
 function escapeHtml(text) {
     if (!text) return '';
     return text
@@ -226,9 +226,9 @@ function escapeHtml(text) {
 }
 
 
-/* ----------------------------------------------------------
+/*
    Run all load functions when page opens
-   ---------------------------------------------------------- */
+*/
 loadProfile();
 loadMyListings();
 loadMyInteractions();

@@ -1,4 +1,4 @@
-/* ============================================================
+/*
    js/dashboard.js
    Handles the Marketplace page:
    - Loading all approved listings
@@ -7,28 +7,28 @@
    - "Interested" button
 
    NOTE: Requires js/config.js and js/auth.js to be loaded first.
-   ============================================================ */
+*/
 
 
-/* ----------------------------------------------------------
+/*
    STEP 1: Redirect to login if not logged in,
    and show the admin link if the user is an admin.
-   ---------------------------------------------------------- */
+*/
 requireLogin();
 showAdminLink();
 
 
-/* ----------------------------------------------------------
+/*
    allListings — stores every listing fetched from the server.
    We keep a copy so we can filter without re-fetching.
-   ---------------------------------------------------------- */
+*/
 var allListings = [];
 
 
-/* ----------------------------------------------------------
+/*
    loadListings()
    Fetches all approved listings from the API and displays them.
-   ---------------------------------------------------------- */
+*/
 function loadListings() {
     /* Show a loading message while we wait for the server */
     document.getElementById('listings-grid').innerHTML = '<p class="loading-msg">Loading listings...</p>';
@@ -47,10 +47,10 @@ function loadListings() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    displayListings(listings)
    Takes an array of listing objects and builds the HTML cards.
-   ---------------------------------------------------------- */
+*/
 function displayListings(listings) {
     var grid = document.getElementById('listings-grid');
 
@@ -107,11 +107,11 @@ function displayListings(listings) {
 }
 
 
-/* ----------------------------------------------------------
+/*
    filterListings()
    Called every time the user types in search or changes filters.
    Filters the allListings array and re-displays results.
-   ---------------------------------------------------------- */
+*/
 function filterListings() {
     /* Get the current filter values */
     var searchText = document.getElementById('search-input').value.toLowerCase();
@@ -150,12 +150,12 @@ function filterListings() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    expressInterest(listingId, ownerName)
    Called when a user clicks the "Interested" button.
    Sends a request to the server which creates an interaction
    and notifies the listing owner.
-   ---------------------------------------------------------- */
+*/
 function expressInterest(listingId, ownerName) {
     /* Send POST request with the listing ID */
     apiPost('/api/interactions', { listing_id: listingId })
@@ -172,22 +172,22 @@ function expressInterest(listingId, ownerName) {
 }
 
 
-/* ----------------------------------------------------------
+/*
    closeModal()
    Hides the new listing popup.
    Still used by submitListing() after a successful post.
-   ---------------------------------------------------------- */
+*/
 function closeModal() {
     document.getElementById('listing-modal').classList.add('hidden');
 }
 
 
 
-/* ----------------------------------------------------------
+/*
    submitListing()
    Called when the user clicks "Submit Listing" in the modal.
    Sends the new listing to the server.
-   ---------------------------------------------------------- */
+*/
 function submitListing() {
     var title       = document.getElementById('listing-title').value.trim();
     var description = document.getElementById('listing-desc').value.trim();
@@ -221,12 +221,12 @@ function submitListing() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    escapeHtml(text)
    Safely inserts user-provided text into HTML.
    Prevents XSS (cross-site scripting) attacks where
    someone could inject harmful code into your page.
-   ---------------------------------------------------------- */
+*/
 function escapeHtml(text) {
     if (!text) return '';
     return text
@@ -240,7 +240,7 @@ function escapeHtml(text) {
 
 
 
-/* ----------------------------------------------------------
+/*
    Run loadListings when the page first opens.
-   ---------------------------------------------------------- */
+*/
 loadListings();

@@ -1,27 +1,27 @@
-/* ============================================================
+/*
    js/auth.js
    Handles: login, register, logout, and checking if user
    is logged in. Also loads the navbar admin link.
 
    NOTE: This file must be loaded AFTER js/config.js
-   ============================================================ */
+*/
 
 
-/* ----------------------------------------------------------
+/*
    getToken()
    Returns the JWT token saved in localStorage.
    Returns null if the user is not logged in.
-   ---------------------------------------------------------- */
+*/
 function getToken() {
     return localStorage.getItem('token');
 }
 
 
-/* ----------------------------------------------------------
+/*
    getUser()
    Returns the user object saved in localStorage.
    Returns null if no user is saved.
-   ---------------------------------------------------------- */
+*/
 function getUser() {
     var userData = localStorage.getItem('user');
     if (userData) {
@@ -31,11 +31,11 @@ function getUser() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    requireLogin()
    Call this at the top of any page that needs the user
    to be logged in. If they're not, send them to login page.
-   ---------------------------------------------------------- */
+*/
 function requireLogin() {
     if (!getToken()) {
         window.location.href = 'login.html';    // redirect to login
@@ -43,10 +43,10 @@ function requireLogin() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    requireAdmin()
    Call on admin pages. Redirects non-admins away.
-   ---------------------------------------------------------- */
+*/
 function requireAdmin() {
     var user = getUser();
     if (!user || user.role !== 'admin') {
@@ -55,11 +55,11 @@ function requireAdmin() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    showAdminLink()
    Shows the "Admin" link in the navbar if user is admin.
    Call this on every page that has a navbar.
-   ---------------------------------------------------------- */
+*/
 function showAdminLink() {
     var user = getUser();
     var adminLink = document.getElementById('admin-nav-link');
@@ -69,10 +69,10 @@ function showAdminLink() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    logout()
    Clears saved login data and sends user to login page.
-   ---------------------------------------------------------- */
+*/
 function logout() {
     localStorage.removeItem('token');    // delete the token
     localStorage.removeItem('user');     // delete the user data
@@ -80,12 +80,12 @@ function logout() {
 }
 
 
-/* ----------------------------------------------------------
+/*
    login(email, password)
    Sends login request to the backend.
    Saves token and user on success.
    Throws an error message on failure.
-   ---------------------------------------------------------- */
+*/
 function login(email, password) {
     // fetch() sends an HTTP request to the server
     return fetch(API_URL + '/api/auth/login', {
@@ -111,10 +111,10 @@ function login(email, password) {
 }
 
 
-/* ----------------------------------------------------------
+/*
    register(fullName, email, password)
    Sends registration request to the backend.
-   ---------------------------------------------------------- */
+*/
 function register(fullName, email, password) {
     return fetch(API_URL + '/api/auth/register', {
         method: 'POST',
@@ -137,11 +137,11 @@ function register(fullName, email, password) {
 }
 
 
-/* ----------------------------------------------------------
+/*
    apiGet(path)
    Makes a GET request to the API with the user's token.
    Returns a Promise that resolves to the data.
-   ---------------------------------------------------------- */
+*/
 function apiGet(path) {
     return fetch(API_URL + path, {
         method: 'GET',
@@ -151,10 +151,10 @@ function apiGet(path) {
 }
 
 
-/* ----------------------------------------------------------
+/*
    apiPost(path, body)
    Makes a POST request to the API with JSON data.
-   ---------------------------------------------------------- */
+*/
 function apiPost(path, body) {
     return fetch(API_URL + path, {
         method: 'POST',
@@ -168,10 +168,10 @@ function apiPost(path, body) {
 }
 
 
-/* ----------------------------------------------------------
+/*
    apiPut(path, body)
    Makes a PUT request to the API (used for updates).
-   ---------------------------------------------------------- */
+*/
 function apiPut(path, body) {
     return fetch(API_URL + path, {
         method: 'PUT',
@@ -185,10 +185,10 @@ function apiPut(path, body) {
 }
 
 
-/* ----------------------------------------------------------
+/*
    apiDelete(path)
    Makes a DELETE request to the API.
-   ---------------------------------------------------------- */
+*/
 function apiDelete(path) {
     return fetch(API_URL + path, {
         method: 'DELETE',
