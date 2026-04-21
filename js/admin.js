@@ -168,11 +168,11 @@ function loadUsers() {
 }
 
 
-/* ----------------------------------------------------------
+/* 
    approveListing(listingId)
    Approves a listing so it shows in the marketplace.
    Refreshes both the pending list and full list.
-   ---------------------------------------------------------- */
+   */
 function approveListing(listingId) {
     apiPut('/api/admin/listings/' + listingId + '/approve', {})
         .then(function(data) {
@@ -189,10 +189,10 @@ function approveListing(listingId) {
 }
 
 
-/* ----------------------------------------------------------
+/* 
    flagListing(listingId)
    Flags a listing as inappropriate — hides it from the marketplace.
-   ---------------------------------------------------------- */
+*/
 function flagListing(listingId) {
     if (!confirm('Flag this listing as inappropriate? It will be hidden from the marketplace.')) {
         return;
@@ -210,11 +210,11 @@ function flagListing(listingId) {
 }
 
 
-/* ----------------------------------------------------------
+/* 
    editListing(listingId, currentTitle, currentCategory)
    Opens simple prompt boxes for the admin to edit a listing.
    Uses browser prompt() — keeps it beginner-friendly.
-   ---------------------------------------------------------- */
+   */
 function editListing(listingId, currentTitle, currentCategory) {
     /* Ask for new title — pre-filled with current value */
     var newTitle = prompt('Edit Title:\n(Leave blank to keep current)', currentTitle);
@@ -256,11 +256,11 @@ function editListing(listingId, currentTitle, currentCategory) {
 }
 
 
-/* ----------------------------------------------------------
+/* 
    adminDeleteListing(listingId, fromPending)
    Permanently deletes a listing.
    fromPending: true if called from the pending list
-   ---------------------------------------------------------- */
+   */
 function adminDeleteListing(listingId, fromPending) {
     if (!confirm('Permanently delete this listing? This cannot be undone.')) {
         return;
@@ -282,9 +282,9 @@ function adminDeleteListing(listingId, fromPending) {
 }
 
 
-/* ----------------------------------------------------------
+/* 
    escapeHtml — safety function
-   ---------------------------------------------------------- */
+   */
 function escapeHtml(text) {
     if (!text) return '';
     return text
@@ -295,9 +295,9 @@ function escapeHtml(text) {
 }
 
 
-/* ----------------------------------------------------------
+/* 
    Run all load functions when the page opens
-   ---------------------------------------------------------- */
+   */
 loadStats();
 loadPendingListings();
 loadAllListings();
