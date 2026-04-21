@@ -1,17 +1,4 @@
-/* ============================================================
-   js/admin.js
-   Handles the Admin Panel page:
-   - Shows platform stats (listings, users, interactions, pending)
-   - Lists pending listings for approval
-   - Lists ALL listings with flag/delete controls
-   - Lists all users
 
-   NOTE: Requires js/config.js and js/auth.js to be loaded first.
-   Only admin accounts can access this page.
-   ============================================================ */
-
-
-/* Redirect to login if not logged in, and to dashboard if not admin */
 requireLogin();
 requireAdmin();
 
