@@ -36,29 +36,29 @@ Registration is restricted to **@acity.edu.gh** institutional emails only.
 ## Feature Checklist
 
 ### 1. User System & Profiles (15 marks)
-- ✅ Secure registration and login (passwords hashed with bcrypt, JWT sessions)
-- ✅ Registration restricted to @acity.edu.gh emails
-- ✅ User profile page with personal info, skills offered, and skills needed
-- ✅ Users can update their profile information
+-  Secure registration and login (passwords hashed with bcrypt, JWT sessions)
+-  Registration restricted to @acity.edu.gh emails
+-  User profile page with personal info, skills offered, and skills needed
+-  Users can update their profile information
 
 ### 2. Marketplace & Listings (15 marks)
-- ✅ Users can post items for sale (textbooks, electronics, etc.)
-- ✅ Users can offer or request skill exchanges
-- ✅ Each listing includes: Title, Description, Category (Item or Skill), Status (Available / Swapped / Sold)
-- ✅ Searchable and filterable feed of listings
+-  Users can post items for sale (textbooks, electronics, etc.)
+-  Users can offer or request skill exchanges
+-  Each listing includes: Title, Description, Category (Item or Skill), Status (Available / Swapped / Sold)
+-  Searchable and filterable feed of listings
 
 ### 3. Interaction & Communication (15 marks)
-- ✅ "Interested" button on each listing
-- ✅ Notification system — listing owner is notified when someone expresses interest
-- ✅ Direct messaging system between users
-- ✅ Users can track the status of their interactions (My Profile page)
+-  "Interested" button on each listing
+-  Notification system — listing owner is notified when someone expresses interest
+-  Direct messaging system between users
+-  Users can track the status of their interactions (My Profile page)
 
 ### 4. Admin Features (15 marks)
-- ✅ Admin can approve listings before they appear in the marketplace
-- ✅ Admin can edit listing title, description, and category
-- ✅ Admin can delete any listing
-- ✅ Admin can flag inappropriate content (hides listing from marketplace)
-- ✅ Admin dashboard with platform stats: total listings, users, interactions, pending
+- Admin can approve listings before they appear in the marketplace
+- Admin can edit listing title, description, and category
+- Admin can delete any listing
+- Admin can flag inappropriate content (hides listing from marketplace)
+- Admin dashboard with platform stats: total listings, users, interactions, pending
 
 ---
 
