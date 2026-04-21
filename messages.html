@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACity Connect - Notifications</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="dashboard.html" class="brand">ACity Connect</a>
+        <div class="nav-links">
+            <a href="dashboard.html">Marketplace</a>
+            <a href="profile.html">My Profile</a>
+            <a href="messages.html">Notifications</a>
+            <span id="admin-nav-link" class="hidden"><a href="admin.html">Admin</a></span>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+
+    <div class="page">
+
+        <!-- =====================================================
+             NOTIFICATIONS SECTION
+             Shows alerts when someone expresses interest in your listing.
+             ===================================================== -->
+        <div class="section-header">
+            <h2>Notifications</h2>
+        </div>
+
+        <div class="section-box">
+            <p style="font-size: 13px; color: #555; margin-bottom: 15px;">
+                These are notifications sent to you when other students express interest in your listings.
+                <br>
+                <span id="unread-count"></span>
+            </p>
+
+            <!-- Notification list goes here -->
+            <div id="notifications-list">
+                <p class="loading-msg">Loading notifications...</p>
+            </div>
+        </div>
+
+
+        <!-- =====================================================
+             MESSAGES SECTION
+             Shows direct messages from other users.
+             ===================================================== -->
+        <div class="section-header" style="margin-top: 25px;">
+            <h2>Messages Received</h2>
+        </div>
+
+        <div class="section-box">
+
+            <!-- Message list -->
+            <div id="messages-list">
+                <p class="loading-msg">Loading messages...</p>
+            </div>
+        </div>
+
+
+        <!-- =====================================================
+             SEND A MESSAGE FORM
+             ===================================================== -->
+        <div class="section-header" style="margin-top: 25px;">
+            <h2>Send a Message</h2>
+        </div>
+
+        <div class="section-box">
+            <p style="font-size: 13px; color: #555; margin-bottom: 15px;">
+                Enter the User ID of the person you want to message.
+                (You can find User IDs by looking at listing cards.)
+            </p>
+
+            <!-- Success / error messages -->
+            <div id="send-success" class="alert alert-success hidden">Message sent!</div>
+            <div id="send-error"   class="alert alert-error   hidden"></div>
+
+            <div class="form-row">
+                <label for="to-user-id">Recipient User ID:</label>
+                <input type="number" id="to-user-id" placeholder="e.g. 5">
+            </div>
+
+            <div class="form-row">
+                <label for="msg-body">Your Message:</label>
+                <textarea id="msg-body" placeholder="Type your message here..."></textarea>
+            </div>
+
+            <button class="btn btn-primary" onclick="sendMessage()">Send Message</button>
+        </div>
+
+    </div><!-- end .page -->
+
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/messages.js"></script>
+
+</body>
+</html>

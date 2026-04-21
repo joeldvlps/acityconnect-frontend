@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACity Connect - My Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="dashboard.html" class="brand">ACity Connect</a>
+        <div class="nav-links">
+            <a href="dashboard.html">Marketplace</a>
+            <a href="profile.html">My Profile</a>
+            <a href="messages.html">Notifications</a>
+            <span id="admin-nav-link" class="hidden"><a href="admin.html">Admin</a></span>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+
+    <div class="page">
+
+        <!-- =====================================================
+             PROFILE LAYOUT — sidebar + main content side by side
+             ===================================================== -->
+        <div class="profile-layout">
+
+            <!-- LEFT: Profile Card (photo placeholder + name + email) -->
+            <div class="profile-sidebar">
+
+                <!-- Avatar circle showing first letter of name -->
+                <div class="profile-avatar" id="profile-avatar">?</div>
+
+                <strong id="profile-name">Loading...</strong><br>
+                <span style="font-size: 12px; color: #666;" id="profile-email"></span><br>
+                <br>
+                <span id="profile-role" class="badge" style="margin-top: 5px;"></span>
+
+            </div>
+
+
+            <!-- RIGHT: Edit form + listings -->
+            <div class="profile-main">
+
+                <!-- -----------------------------------------
+                     EDIT PROFILE FORM
+                     ----------------------------------------- -->
+                <div class="section-box">
+                    <h2 style="color: #000080; margin-bottom: 15px;">Edit My Profile</h2>
+
+                    <!-- Success / error messages -->
+                    <div id="save-success" class="alert alert-success hidden">Profile saved successfully!</div>
+                    <div id="save-error"   class="alert alert-error   hidden"></div>
+
+                    <!-- Full Name -->
+                    <div class="form-row">
+                        <label for="edit-name">Full Name:</label>
+                        <input type="text" id="edit-name" placeholder="Your full name">
+                    </div>
+
+                    <!-- Skills Offered -->
+                    <div class="form-row">
+                        <label for="edit-skills-offered">Skills I Can Offer:</label>
+                        <input type="text" id="edit-skills-offered" placeholder="e.g. Python, Math Tutoring, Graphic Design">
+                        <small style="color:#666;">Separate multiple skills with commas</small>
+                    </div>
+
+                    <!-- Skills Needed -->
+                    <div class="form-row">
+                        <label for="edit-skills-needed">Skills I Need:</label>
+                        <input type="text" id="edit-skills-needed" placeholder="e.g. Video Editing, Spanish, Accounting">
+                    </div>
+
+                    <!-- Bio -->
+                    <div class="form-row">
+                        <label for="edit-bio">About Me (Bio):</label>
+                        <textarea id="edit-bio" placeholder="Tell the community a little about yourself..."></textarea>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="saveProfile()">Save Changes</button>
+                </div>
+
+
+                <!-- -----------------------------------------
+                     MY LISTINGS
+                     ----------------------------------------- -->
+                <div class="section-box">
+                    <h2 style="color: #000080; margin-bottom: 15px;">My Listings</h2>
+                    <div id="my-listings">
+                        <p class="loading-msg">Loading your listings...</p>
+                    </div>
+                </div>
+
+
+                <!-- -----------------------------------------
+                     MY INTERACTIONS (listings I showed interest in)
+                     ----------------------------------------- -->
+                <div class="section-box">
+                    <h2 style="color: #000080; margin-bottom: 15px;">Listings I'm Interested In</h2>
+                    <div id="my-interactions">
+                        <p class="loading-msg">Loading...</p>
+                    </div>
+                </div>
+
+            </div><!-- end .profile-main -->
+
+        </div><!-- end .profile-layout -->
+
+    </div><!-- end .page -->
+
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+
+</body>
+</html>

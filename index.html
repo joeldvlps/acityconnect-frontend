@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACity Connect - Campus Marketplace</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /*Landing page 
+         
+
+        /* campus image as background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 500px;
+            background-image: url('https://acity.edu.gh/wp-content/uploads/2024/02/Academic-City-University-College.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 50, 0.62);
+        }
+
+       
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            max-width: 650px;
+        }
+
+        /* Site name */
+        .hero-content h1 {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* Tagline */
+        .hero-content p {
+            font-size: 18px;
+            color: #ddddff;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* The two big call-to-action buttons */
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 12px 32px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid #ffffff;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* Solid white button */
+        .hero-btn-primary {
+            background: #ffffff;
+            color: #000080;
+        }
+
+        .hero-btn-primary:hover {
+            background: #dddddd;
+            color: #000080;
+        }
+
+        /* Transparent/outline button */
+        .hero-btn-outline {
+            background: transparent;
+            color: #ffffff;
+        }
+
+        .hero-btn-outline:hover {
+            background: rgba(255,255,255,0.15);
+            color: #ffffff;
+        }
+
+        /* Three info boxes below the hero */
+        .features {
+            display: flex;
+            gap: 0;
+            background: #000080;
+        }
+
+        .feature-box {
+            flex: 1;
+            padding: 25px 20px;
+            text-align: center;
+            color: #ffffff;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .feature-box:last-child {
+            border-right: none;
+        }
+
+        .feature-box h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #aaaaff;
+        }
+
+        .feature-box p {
+            font-size: 13px;
+            color: #ccccdd;
+            line-height: 1.5;
+        }
+
+        /* Second image section */
+        .campus-strip {
+            display: flex;
+            height: 220px;
+        }
+
+        .campus-strip img {
+            width: 50%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Footer strip */
+        .landing-footer {
+            background: #111133;
+            color: #aaaacc;
+            text-align: center;
+            padding: 15px;
+            font-size: 13px;
+        }
+
+        /* Mobile: stack the features */
+        @media (max-width: 600px) {
+            .features { flex-direction: column; }
+            .campus-strip { flex-direction: column; height: auto; }
+            .campus-strip img { width: 100%; height: 160px; }
+            .hero-content h1 { font-size: 30px; }
+            .hero-content p  { font-size: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- campus image with headline and buttons-->
+    <section class="hero">
+
+        <!-- Dark overlay to improve text readability -->
+        <div class="hero-overlay"></div>
+
+        <!-- Text and buttons centred on the image -->
+        <div class="hero-content">
+
+            <h1>ACity Connect</h1>
+
+            <p>
+                The official marketplace for Academic City students.<br>
+                Buy and sell textbooks, electronics, and more.<br>
+                Exchange skills with your fellow students.
+            </p>
+
+            <!-- Call to action buttons -->
+            <div class="hero-buttons">
+                <a href="login.html" class="hero-btn hero-btn-primary">Sign In</a>
+                <a href="register.html" class="hero-btn hero-btn-outline">Create Account</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- short descriptions of what ACity Connect does-->
+    <div class="features">
+
+        <div class="feature-box">
+            <h3>Buy &amp; Sell Items</h3>
+            <p>Post your used textbooks, electronics, and other campus items for others to buy.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>Exchange Skills</h3>
+            <p>Offer tutoring, design, or coding skills and find students who can help you in return.</p>
+        </div>
+
+
+
+    </div>
+
+
+    <!-- campus images side by side-->
+    <div class="campus-strip">
+
+        <img
+            src="https://acity.edu.gh/images/academic-university-college.jpg"
+            alt="Academic City University College main building"
+            onerror="this.style.display='none'"
+        >
+
+        <img
+            src="https://thebftonline.com/wp-content/uploads/2023/11/Academic-City.jpg"
+            alt="Academic City University College campus"
+            onerror="this.style.display='none'"
+        >
+
+    </div>
+
+
+    <!-- FOOTER-->  
+    <div class="landing-footer">
+        &copy; 2024 ACity Connect &mdash; Academic City University College, Accra, Ghana
+    </div>
+
+</body>
+</html>

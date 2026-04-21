@@ -1,0 +1,583 @@
+/* ============================================================
+   ACITY CONNECT — Main Stylesheet
+   Simple, clean, easy to read.
+   ============================================================ */
+
+
+/* ----------------------------------------------------------
+   GLOBAL RESET — Remove default browser spacing
+   ---------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    /* makes sizing easier to predict */
+}
+
+
+/* ----------------------------------------------------------
+   BODY — Base page styles
+   ---------------------------------------------------------- */
+body {
+    font-family: Arial, sans-serif;   /* common web font, works everywhere */
+    background-color: #f0f0f0;        /* light grey background */
+    color: #222222;                   /* dark text for readability */
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* ----------------------------------------------------------
+   HEADINGS
+   ---------------------------------------------------------- */
+h1 { font-size: 24px; margin-bottom: 12px; }
+h2 { font-size: 20px; margin-bottom: 10px; }
+h3 { font-size: 17px; margin-bottom: 8px;  }
+
+
+/* ----------------------------------------------------------
+   LINKS
+   ---------------------------------------------------------- */
+a {
+    color: #000080;    /* classic navy blue link colour */
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #cc0000;    /* red on hover, very 2000s */
+}
+
+
+/* .hidden must use !important so it beats any other display property
+   (e.g. .modal-overlay sets display:flex, which would override display:none
+   without !important) */
+.hidden {
+    display: none !important;
+}
+
+
+/* ===========================================================
+   NAVBAR — Top navigation bar
+   =========================================================== */
+.navbar {
+    background-color: #000080;    /* navy blue */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* The brand name on the left */
+.navbar .brand {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* The links on the right */
+.navbar .nav-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.navbar .nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid transparent;
+}
+
+.navbar .nav-links a:hover {
+    text-decoration: underline;
+    color: #ffff99;    /* yellow hover on dark background */
+}
+
+/* Logout button in the navbar */
+.navbar .btn-logout {
+    background-color: #cc0000;
+    color: #ffffff;
+    border: none;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.navbar .btn-logout:hover {
+    background-color: #aa0000;
+}
+
+
+/* ===========================================================
+   PAGE WRAPPER — Centre content with max width
+   =========================================================== */
+.page {
+    max-width: 900px;
+    margin: 20px auto;    /* centre horizontally, 20px from top */
+    padding: 0 15px;
+}
+
+
+/* ===========================================================
+   AUTH BOX — Login and Register forms
+   =========================================================== */
+.auth-box {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #ffffff;
+    border: 2px solid #000080;
+    padding: 30px;
+}
+
+.auth-box h1 {
+    text-align: center;
+    color: #000080;
+    margin-bottom: 20px;
+}
+
+.auth-box .logo-text {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+
+/* ===========================================================
+   FORMS — Labels, inputs, buttons
+   =========================================================== */
+.form-row {
+    margin-bottom: 15px;    /* spacing between form fields */
+}
+
+.form-row label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 13px;
+    color: #333333;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+    width: 100%;
+    padding: 7px 10px;
+    border: 1px solid #aaaaaa;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+    border-color: #000080;
+    outline: none;
+}
+
+.form-row textarea {
+    height: 80px;
+    resize: vertical;    /* user can drag to make it taller */
+}
+
+
+/* ===========================================================
+   BUTTONS
+   =========================================================== */
+
+/* Primary action button (blue) */
+.btn {
+    padding: 8px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+
+.btn-primary {
+    background-color: #000080;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #0000aa;
+}
+
+/* Full-width button (for forms) */
+.btn-full {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+}
+
+/* Small green button */
+.btn-success {
+    background-color: #006600;
+    color: #ffffff;
+    padding: 5px 12px;
+    font-size: 13px;
+}
+
+.btn-success:hover {
+    background-color: #008800;
+}
+
+/* Small red button */
+.btn-danger {
+    background-color: #cc0000;
+    color: #ffffff;
+    padding: 5px 12px;
+    font-size: 13px;
+}
+
+.btn-danger:hover {
+    background-color: #aa0000;
+}
+
+/* Orange button for flag/warn */
+.btn-warn {
+    background-color: #cc6600;
+    color: #ffffff;
+    padding: 5px 12px;
+    font-size: 13px;
+}
+
+.btn-warn:hover {
+    background-color: #aa5500;
+}
+
+
+/* ===========================================================
+   ALERTS — Error and success messages
+   =========================================================== */
+.alert {
+    padding: 10px 14px;
+    margin-bottom: 15px;
+    border: 1px solid;
+    font-size: 14px;
+}
+
+.alert-error {
+    background-color: #ffe0e0;
+    border-color: #cc0000;
+    color: #990000;
+}
+
+.alert-success {
+    background-color: #e0ffe0;
+    border-color: #006600;
+    color: #004400;
+}
+
+.alert-info {
+    background-color: #e0e8ff;
+    border-color: #000080;
+    color: #000060;
+}
+
+
+/* ===========================================================
+   SECTION HEADER — Title + subtitle + optional button
+   =========================================================== */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #000080;
+}
+
+.section-header h2 {
+    margin-bottom: 0;
+    color: #000080;
+}
+
+
+/* ===========================================================
+   SEARCH & FILTER BAR
+   =========================================================== */
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;     /* wrap to next line on small screens */
+}
+
+.filter-bar input,
+.filter-bar select {
+    padding: 6px 10px;
+    border: 1px solid #aaaaaa;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.filter-bar input {
+    flex: 1;             /* take up remaining space */
+    min-width: 180px;
+}
+
+
+/* ===========================================================
+   LISTINGS GRID — Marketplace cards
+   =========================================================== */
+.listings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   /* 3 columns */
+    gap: 15px;                               /* space between cards */
+}
+
+/* On smaller screens, switch to 1 column */
+@media (max-width: 650px) {
+    .listings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Individual listing card */
+.card {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 14px;
+}
+
+.card h3 {
+    color: #000080;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+.card p {
+    font-size: 13px;
+    color: #444444;
+    margin-bottom: 10px;
+}
+
+/* Bottom row of card: badge + button */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #eeeeee;
+    font-size: 12px;
+    color: #666666;
+}
+
+
+/* ===========================================================
+   BADGES — Small coloured labels
+   =========================================================== */
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid;
+}
+
+.badge-item  { background: #e0e8ff; color: #000060; border-color: #000080; }
+.badge-skill { background: #e0ffe0; color: #004400; border-color: #006600; }
+
+/* Status badges */
+.badge-available { background: #e0ffe0; color: #004400; border-color: #006600; }
+.badge-swapped   { background: #e0e8ff; color: #000060; border-color: #000080; }
+.badge-sold      { background: #ffe0e0; color: #990000; border-color: #cc0000; }
+.badge-pending   { background: #fff3cc; color: #664400; border-color: #cc8800; }
+.badge-flagged   { background: #ff9999; color: #660000; border-color: #cc0000; }
+
+
+/* ===========================================================
+   TABLE — Used in admin page and messages page
+   =========================================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;    /* remove double borders */
+    background: #ffffff;
+    font-size: 13px;
+}
+
+table th {
+    background-color: #000080;
+    color: #ffffff;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #dddddd;
+    vertical-align: top;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+
+/* ===========================================================
+   STAT BOXES — Admin dashboard numbers
+   =========================================================== */
+.stats-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    background: #ffffff;
+    border: 2px solid #000080;
+    padding: 15px 20px;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+}
+
+.stat-box .stat-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000080;
+}
+
+.stat-box .stat-label {
+    font-size: 13px;
+    color: #555555;
+    margin-top: 4px;
+}
+
+
+/* ===========================================================
+   SECTION BOX — White box with border (general container)
+   =========================================================== */
+.section-box {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* ===========================================================
+   PROFILE LAYOUT — Side card + main content
+   =========================================================== */
+.profile-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.profile-sidebar {
+    width: 220px;
+    flex-shrink: 0;           /* don't let it shrink smaller */
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #000080;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px auto;
+}
+
+.profile-main {
+    flex: 1;
+}
+
+/* On small screens, stack vertically */
+@media (max-width: 600px) {
+    .profile-layout {
+        flex-direction: column;
+    }
+    .profile-sidebar {
+        width: 100%;
+    }
+}
+
+
+/* ===========================================================
+   MODAL — Popup dialog box
+   =========================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);    /* semi-transparent black */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-box {
+    background: #ffffff;
+    border: 2px solid #000080;
+    padding: 25px;
+    width: 480px;
+    max-width: 95%;
+}
+
+.modal-box h3 {
+    color: #000080;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+
+/* ===========================================================
+   MESSAGE PAGE — Notification and message list items
+   =========================================================== */
+.msg-item {
+    padding: 12px;
+    border-bottom: 1px solid #dddddd;
+    font-size: 14px;
+}
+
+.msg-item:last-child {
+    border-bottom: none;
+}
+
+.msg-item.unread {
+    background-color: #e8f0ff;    /* light blue for unread */
+    font-weight: bold;
+}
+
+.msg-date {
+    font-size: 11px;
+    color: #888888;
+    margin-top: 4px;
+}
+
+
+/* ===========================================================
+   LOADING / EMPTY STATE TEXT
+   =========================================================== */
+.loading-msg {
+    color: #666666;
+    font-size: 14px;
+    padding: 20px;
+    text-align: center;
+}

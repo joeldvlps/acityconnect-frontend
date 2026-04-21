@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACity Connect - Register</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- =====================================================
+         REGISTER BOX
+         ===================================================== -->
+    <div class="auth-box">
+
+        <h1>ACity Connect</h1>
+        <span class="logo-text">Create your account — ACity students only</span>
+
+        <!-- Error / success messages -->
+        <div id="error-msg"   class="alert alert-error   hidden"></div>
+
+        <!-- Registration Form -->
+        <form id="register-form">
+
+            <!-- Full name -->
+            <div class="form-row">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" placeholder="e.g. Kofi Mensah" required>
+            </div>
+
+            <!-- Institutional email — must end with @acity.edu.gh -->
+            <div class="form-row">
+                <label for="email">Institutional Email:</label>
+                <input type="email" id="email" placeholder="you@acity.edu.gh" required>
+            </div>
+
+            <!-- Password (min 6 characters) -->
+            <div class="form-row">
+                <label for="password">Password (min 6 characters):</label>
+                <input type="password" id="password" placeholder="Choose a password" required minlength="6">
+            </div>
+
+            <div class="form-row">
+                <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+            </div>
+
+        </form>
+
+        <p style="text-align: center; font-size: 13px; margin-top: 15px;">
+            Already have an account? <a href="login.html">Sign in</a>
+        </p>
+        <p style="text-align: center; font-size: 12px; margin-top: 8px;">
+            <a href="index.html">&larr; Back to Home</a>
+        </p>
+
+    </div><!-- end .auth-box -->
+
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+
+    <script>
+        /* --------------------------------------------------
+           Handle registration form submission
+           -------------------------------------------------- */
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var fullName = document.getElementById('fullname').value;
+            var email    = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            /* Show error if email is not @acity.edu.gh
+               (The server also checks this, but we check early
+               on the client side to give instant feedback) */
+            if (!email.endsWith('@acity.edu.gh')) {
+                var errorBox = document.getElementById('error-msg');
+                errorBox.textContent = 'You must use an ACity email address (you@acity.edu.gh).';
+                errorBox.classList.remove('hidden');
+                return;    // stop here, don't submit
+            }
+
+            /* Hide any old error */
+            var errorBox = document.getElementById('error-msg');
+            errorBox.classList.add('hidden');
+
+            /* Call the register() function from auth.js */
+            register(fullName, email, password)
+                .catch(function(err) {
+                    errorBox.textContent = err.message;
+                    errorBox.classList.remove('hidden');
+                });
+        });
+    </script>
+
+</body>
+</html>

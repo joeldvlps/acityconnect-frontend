@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACity Connect - Login</title>
+
+    <!-- Load our stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    
+    <div class="auth-box">
+
+        <!-- Logo / Title -->
+        <h1>ACity Connect</h1>
+        <span class="logo-text">Trade. Exchange. Grow.</span>
+
+        <!-- Error message (hidden by default, shown on failed login) -->
+        <div id="error-msg" class="alert alert-error hidden"></div>
+
+        <!-- Login Form -->
+        <form id="login-form">
+
+            <!-- Email field -->
+            <div class="form-row">
+                <label for="email">Institutional Email:</label>
+                <input type="email" id="email" placeholder="you@acity.edu.gh" required>
+            </div>
+
+            <!-- Password field -->
+            <div class="form-row">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <!-- Submit button -->
+            <div class="form-row">
+                <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+            </div>
+
+        </form>
+
+        <!-- Link to register page and back to home -->
+        <p style="text-align: center; font-size: 13px; margin-top: 15px;">
+            Don't have an account? <a href="register.html">Register here</a>
+        </p>
+        <p style="text-align: center; font-size: 12px; margin-top: 8px;">
+            <a href="index.html">&larr; Back to Home</a>
+        </p>
+
+    </div>
+
+
+    <!-- 
+         SCRIPTS
+         Load config.js first (it defines API_URL),
+         then auth.js (which uses API_URL).
+         -->
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+
+    <script>
+        //skips login if user already logged in
+        if (getToken()) {
+            window.location.href = 'dashboard.html';
+        }
+
+
+       //prevent default page reload 
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();    // stop the form from refreshing the page
+
+            /* Get the values the user typed in */
+            var email    = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            /* Hide any previous error */
+            var errorBox = document.getElementById('error-msg');
+            errorBox.classList.add('hidden');
+            errorBox.textContent = '';
+
+            /* Call the login() function from auth.js */
+            login(email, password)
+                .catch(function(err) {
+                    /* If login fails, show the error message */
+                    errorBox.textContent = err.message;
+                    errorBox.classList.remove('hidden');
+                });
+        });
+    </script>
+
+</body>
+</html>

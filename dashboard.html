@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACity Connect - Marketplace</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="dashboard.html" class="brand">ACity Connect</a>
+
+        <div class="nav-links">
+            <a href="dashboard.html">Marketplace</a>
+            <a href="profile.html">My Profile</a>
+            <a href="messages.html">Notifications</a>
+
+            <!-- Admin link only shown to admin users -->
+            <span id="admin-nav-link" class="hidden">
+                <a href="admin.html">Admin</a>
+            </span>
+
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+
+    <!-- MAIN PAGE -->
+    <div class="page">
+
+        <!-- Page title row — button on right only shows when user clicks it -->
+        <div class="section-header">
+            <div>
+                <h2>Marketplace</h2>
+                <p style="font-size: 13px; color: #555; margin-top: 4px;">Browse items and skills from the ACity community</p>
+            </div>
+            <!-- This button opens the modal — modal is NOT open by default -->
+            <button class="btn btn-primary" id="open-modal-btn">+ Post a Listing</button>
+        </div>
+
+
+        <!-- SEARCH AND FILTER BAR -->
+        <div class="filter-bar">
+            <input type="text" id="search-input" placeholder="Search listings..." oninput="filterListings()">
+
+            <select id="category-filter" onchange="filterListings()">
+                <option value="">All Categories</option>
+                <option value="item">Items</option>
+                <option value="skill">Skills</option>
+            </select>
+
+            <select id="status-filter" onchange="filterListings()">
+                <option value="">All Statuses</option>
+                <option value="available">Available</option>
+                <option value="swapped">Swapped</option>
+                <option value="sold">Sold</option>
+            </select>
+        </div>
+
+        <div id="error-msg" class="alert alert-error hidden"></div>
+
+        <!-- Listings grid — filled by dashboard.js -->
+        <div id="listings-grid" class="listings-grid">
+            <p class="loading-msg">Loading listings...</p>
+        </div>
+
+    </div><!-- end .page -->
+
+
+    <!-- =====================================================
+         NEW LISTING MODAL
+         Starts hidden. Only opens when "Post a Listing" is clicked.
+         ===================================================== -->
+    <div id="listing-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+
+            <!-- Modal header with close button in top-right -->
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; padding-bottom:10px; border-bottom:1px solid #cccccc;">
+                <h3 style="margin:0; color:#000080;">Post a New Listing</h3>
+
+                <!-- Close button — inline JS avoids any function scope issues -->
+                <button
+                    id="modal-close-btn"
+                    title="Close"
+                    style="background:#cc0000; color:#fff; border:none; padding:5px 14px; cursor:pointer; font-size:14px; font-family:Arial,sans-serif;"
+                >&#10005; Close</button>
+            </div>
+
+            <!-- Error message inside the modal -->
+            <div id="modal-error" class="alert alert-error hidden"></div>
+
+            <!-- Listing Title -->
+            <div class="form-row">
+                <label for="listing-title">Title:</label>
+                <input type="text" id="listing-title" placeholder="e.g. Calculus Textbook (3rd Ed.)">
+            </div>
+
+            <!-- Listing Description -->
+            <div class="form-row">
+                <label for="listing-desc">Description:</label>
+                <textarea id="listing-desc" placeholder="Describe your item or skill in detail..."></textarea>
+            </div>
+
+            <!-- Category: Item or Skill -->
+            <div class="form-row">
+                <label for="listing-category">Category:</label>
+                <select id="listing-category">
+                    <option value="item">Item for Sale</option>
+                    <option value="skill">Skill Exchange</option>
+                </select>
+            </div>
+
+            <!-- Action buttons at the bottom -->
+            <div class="modal-actions">
+                <button class="btn btn-danger"   id="modal-cancel-btn">Cancel</button>
+                <button class="btn btn-primary"  id="modal-submit-btn">Submit Listing</button>
+            </div>
+
+        </div>
+    </div><!-- end modal -->
+
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+
+    <script>
+        /* --------------------------------------------------
+           Wire up the modal open/close buttons HERE,
+           after the DOM is fully loaded.
+           Using addEventListener instead of onclick attributes
+           so we don't depend on global function names.
+           -------------------------------------------------- */
+
+        /* Open the modal when "Post a Listing" is clicked */
+        document.getElementById('open-modal-btn').addEventListener('click', function() {
+            /* Clear any old input */
+            document.getElementById('listing-title').value = '';
+            document.getElementById('listing-desc').value  = '';
+            document.getElementById('modal-error').classList.add('hidden');
+            /* Show the modal */
+            document.getElementById('listing-modal').classList.remove('hidden');
+        });
+
+        /* Close the modal — top-right X button */
+        document.getElementById('modal-close-btn').addEventListener('click', function() {
+            document.getElementById('listing-modal').classList.add('hidden');
+        });
+
+        /* Close the modal — Cancel button at the bottom */
+        document.getElementById('modal-cancel-btn').addEventListener('click', function() {
+            document.getElementById('listing-modal').classList.add('hidden');
+        });
+
+        /* Close the modal when user clicks the dark background outside the box */
+        document.getElementById('listing-modal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+
+        /* Submit the listing — calls submitListing() from dashboard.js */
+        document.getElementById('modal-submit-btn').addEventListener('click', function() {
+            submitListing();
+        });
+    </script>
+
+</body>
+</html>

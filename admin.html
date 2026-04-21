@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACity Connect - Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="dashboard.html" class="brand">ACity Connect</a>
+        <div class="nav-links">
+            <a href="dashboard.html">Marketplace</a>
+            <a href="profile.html">My Profile</a>
+            <a href="messages.html">Notifications</a>
+            <a href="admin.html">Admin Panel</a>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+
+    <div class="page">
+
+        <div class="section-header">
+            <h2>Admin Panel</h2>
+        </div>
+
+        <p style="color:#555; font-size:13px; margin-bottom: 20px;">
+            Admins can approve listings before they go public, flag inappropriate content,
+            delete listings, and view platform usage statistics.
+        </p>
+
+
+        <!-- =====================================================
+             STATS ROW — 4 numbers at a glance
+             ===================================================== -->
+        <div class="stats-row">
+
+            <div class="stat-box">
+                <div class="stat-number" id="stat-listings">--</div>
+                <div class="stat-label">Total Listings</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-number" id="stat-users">--</div>
+                <div class="stat-label">Registered Users</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-number" id="stat-interactions">--</div>
+                <div class="stat-label">Interactions</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-number" id="stat-pending">--</div>
+                <div class="stat-label">Pending Approval</div>
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             PENDING LISTINGS — Need admin approval before going live
+             ===================================================== -->
+        <div class="section-header" style="margin-top: 25px;">
+            <h2>Pending Listings <span id="pending-count" class="badge badge-pending" style="font-size:14px;"></span></h2>
+        </div>
+
+        <div class="section-box">
+            <p style="font-size: 13px; color: #555; margin-bottom: 15px;">
+                These listings were submitted by students and are waiting for your approval.
+                Click "Approve" to make them visible in the marketplace, or "Delete" to remove them.
+            </p>
+
+            <div id="pending-list">
+                <p class="loading-msg">Loading pending listings...</p>
+            </div>
+        </div>
+
+
+        <!-- =====================================================
+             ALL LISTINGS — Admin can moderate any listing
+             ===================================================== -->
+        <div class="section-header" style="margin-top: 25px;">
+            <h2>All Listings</h2>
+        </div>
+
+        <div class="section-box">
+            <p style="font-size: 13px; color: #555; margin-bottom: 15px;">
+                All listings on the platform, including approved and flagged ones.
+                You can flag or delete any listing here.
+            </p>
+
+            <div id="all-listings-list">
+                <p class="loading-msg">Loading all listings...</p>
+            </div>
+        </div>
+
+
+        <!-- =====================================================
+             ALL USERS
+             ===================================================== -->
+        <div class="section-header" style="margin-top: 25px;">
+            <h2>Registered Users</h2>
+        </div>
+
+        <div class="section-box">
+            <div id="users-list">
+                <p class="loading-msg">Loading users...</p>
+            </div>
+        </div>
+
+    </div><!-- end .page -->
+
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+
+</body>
+</html>
