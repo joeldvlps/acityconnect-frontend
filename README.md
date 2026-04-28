@@ -1,6 +1,6 @@
 # ACity Connect
 
-This is my final project for the Web Technologies course. It's a platform called ACity Connect—basically a smart campus marketplace for Academic City University students. It lets us buy and sell second-hand stuff like textbooks and gadgets, or arrange skill exchanges with each other. It also has a built-in messaging and notification system, plus an admin dashboard to keep everything moderated. Oh, and you can only sign up if you use an official `@acity.edu.gh` email.
+This is my final project for the Web Technologies course. It's a platform called ACity Connect—basically a smart campus marketplace for Academic City University students. It lets us buy and sell second-hand stuff like textbooks and gadgets, or arrange skill exchanges with each other. It also has a built-in messaging and notification system, plus an admin dashboard to keep everything moderated. And you can only sign up if you use an official `@acity.edu.gh` email.
 
 ## Important Links
 - **Frontend Live Site:** https://joeldvlps.github.io/acityconnect-frontend
