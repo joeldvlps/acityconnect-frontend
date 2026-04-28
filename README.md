@@ -1,121 +1,80 @@
-# ACity Connect — Smart Campus Marketplace & Skill Exchange
+# ACity Connect
 
-## Project Overview
+This is my final project for the Web Technologies course. It's a platform called ACity Connect—basically a smart campus marketplace for Academic City University students. It lets us buy and sell second-hand stuff like textbooks and gadgets, or arrange skill exchanges with each other. It also has a built-in messaging and notification system, plus an admin dashboard to keep everything moderated. Oh, and you can only sign up if you use an official `@acity.edu.gh` email.
 
-ACity Connect is a web platform that enables students at Academic City University College to:
-- **Buy and sell second-hand items** (textbooks, electronics, etc.)
-- **Exchange skills** (tutoring, design, coding, etc.)
-- **Send messages** and receive notifications when someone expresses interest in a listing
-- **Admins** can moderate all content: approve, edit, flag, or delete listings
+## Important Links
+- **Frontend Live Site:** https://joeldvlps.github.io/acityconnect-frontend
+- **Backend Live Server:** https://acityconnect.onrender.com
+- **Frontend Code:** https://github.com/joeldvlps/acityconnect-frontend
+- **Backend Code:** https://github.com/joeldvlps/acityconnect-backend
 
-Registration is restricted to **@acity.edu.gh** institutional emails only.
+## Test Logins
+If you want to test out the admin dashboard right away:
+- **Email:** admin@acity.edu.gh
+- **Password:** admin123
 
----
-
-## Deployment Links
-
-| Part | Link |
-|------|------|
-| **Frontend (GitHub Pages)** | https://joeldvlps.github.io/acityconnect-frontend |
-| **Backend (Render)** | https://acityconnect.onrender.com |
-| **Backend GitHub Repo** | https://github.com/joeldvlps/acityconnect-backend |
-| **Frontend GitHub Repo** | https://github.com/joeldvlps/acityconnect-frontend |
-
-
----
-
-## Login Details
-
-| Role | Email | Password |
-|------|-------|----------|
-| **Admin** | admin@acity.edu.gh | admin123 |
-| **Student** | Register with any @acity.edu.gh email | Your chosen password |
-
----
+To test the normal student flow, just register a new account. Remember that the email must end with `@acity.edu.gh`.
 
 ## Feature Checklist
+Here’s a breakdown of the required project features that have been successfully implemented:
 
-### 1. User System & Profiles (15 marks)
--  Secure registration and login (passwords hashed with bcrypt, JWT sessions)
--  Registration restricted to @acity.edu.gh emails
--  User profile page with personal info, skills offered, and skills needed
--  Users can update their profile information
+### 1. User System & Profiles
+- [x] Secure registration and login flow
+- [x] Signups restricted to `@acity.edu.gh` domains
+- [x] User profile pages showing personal info, offered skills, and needed skills
+- [x] Users can edit and update their profile info
 
-### 2. Marketplace & Listings (15 marks)
--  Users can post items for sale (textbooks, electronics, etc.)
--  Users can offer or request skill exchanges
--  Each listing includes: Title, Description, Category (Item or Skill), Status (Available / Swapped / Sold)
--  Searchable and filterable feed of listings
+### 2. Marketplace & Listings
+- [x] Users can easily post items for sale
+- [x] Support for offering or requesting specific skills
+- [x] Listings display title, description, category, and status (available, swapped, or sold)
+- [x] A solid search and filter system for the listings feed
 
-### 3. Interaction & Communication (15 marks)
--  "Interested" button on each listing
--  Notification system — listing owner is notified when someone expresses interest
--  Direct messaging system between users
--  Users can track the status of their interactions (My Profile page)
+### 3. Interaction & Communication
+- [x] An "Interested" button on every listing
+- [x] A notification system AND a direct messaging system for trade requests
+- [x] Users can track all their interactions right from their profile
 
-### 4. Admin Features (15 marks)
-- Admin can approve listings before they appear in the marketplace
-- Admin can edit listing title, description, and category
-- Admin can delete any listing
-- Admin can flag inappropriate content (hides listing from marketplace)
-- Admin dashboard with platform stats: total listings, users, interactions, pending
+### 4. Admin Features
+- [x] Admins can moderate listings (approving them before they go public)
+- [x] Admins can edit or completely delete posts
+- [x] Admins can flag inappropriate content
+- [x] A statistics dashboard to monitor overall platform activity
 
----
+## Running It Locally
 
-## Installation Instructions (Run Locally)
+Want to spin this up on your own machine? Here’s how:
 
-### Prerequisites
-- [Node.js](https://nodejs.org) (v18 or higher)
-- A PostgreSQL database (free on [Render.com](https://render.com))
-
-### Steps
-
-**1. Clone the backend repository:**
+**1. Clone the backend repository**
 ```bash
 git clone https://github.com/joeldvlps/acityconnect-backend.git
 cd acityconnect-backend
 ```
 
-**2. Install dependencies:**
+**2. Install dependencies**
 ```bash
 npm install
 ```
 
-**3. Create a `.env` file:**
-```
-DATABASE_URL=your_postgresql_connection_string
-JWT_SECRET=anyLongRandomString
+**3. Configure your environment**
+Create a `.env` file in the root folder and add your database info:
+```env
+DATABASE_URL=your_postgres_connection_url_here
+JWT_SECRET=some_super_secret_string
 NODE_ENV=development
 ```
 
-**4. Set up the database (run once):**
+**4. Set up the database**
+Run the setup script to create the necessary tables and the default admin account:
 ```bash
 node setup-db.js
 ```
 
-**5. (Optional) Add sample listings:**
-```bash
-node seed-listings.js
-```
-
-**6. Start the server:**
+**5. Start up the backend server**
 ```bash
 node server.js
 ```
-Server runs at: `http://localhost:5000`
+*The API will start running on `http://localhost:5000`.*
 
-**7. Open the frontend:**  
-Open `index.html` in your browser (or use VS Code Live Server).  
-Make sure `js/config.js` has `var API_URL = 'http://localhost:5000';`
-
----
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | HTML, CSS, Vanilla JavaScript |
-| Backend | Node.js, Express.js |
-| Database | PostgreSQL |
-| Auth | JWT (JSON Web Tokens) + bcryptjs |
-| Hosting | Render.com (backend), GitHub Pages (frontend) |
+**6. Fire up the frontend**
+Open `index.html` in your browser, or use VS Code's Live Server. Make sure the API url in `js/config.js` is set to point to `http://localhost:5000` so it connects to your local instance instead of Render.
