@@ -6,5 +6,5 @@
    RENDER DEPLOY:   var API_URL = 'https://your-app.onrender.com';
 */
 
-var API_URL = 'http://localhost:5000';
+var API_URL = 'https://acityconnect.onrender.com';
 
